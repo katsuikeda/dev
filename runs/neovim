@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 
-echo "hello neovim"
+rm -rf $HOME/dev/github.com/katsuikeda/neovim
+git clone -b v0.10.4 git@github.com:neovim/neovim.git $HOME/dev/github.com/katsuikeda/neovim
+brew install ninja cmake gettext curl
+
+cd $HOME/dev/github.com/katsuikeda/neovim
+make CMAKE_BUILD_TYPE="RelWithDebInfo"
+make install
